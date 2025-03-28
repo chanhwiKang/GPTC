@@ -1,0 +1,10 @@
+.backBoard {
+  @apply bg-[#F7F7F5]
+  w-[500px]
+  h-[700px]
+  rounded-[20px] 
+  border border-[#E5E5E1]
+  
+  mt-[100px]
+  ml-[100px];
+}

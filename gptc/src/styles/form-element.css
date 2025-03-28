@@ -1,0 +1,17 @@
+/* styles/form-element.css */
+.title {
+  @apply text-black
+    text-[40px];
+}
+.input-title {
+  @apply text-black
+  text-[18px];
+}
+.error-msg {
+  @apply text-red-500
+    text-[18px];
+}
+.correct-msg {
+  @apply text-green-500
+    text-[18px];
+}
