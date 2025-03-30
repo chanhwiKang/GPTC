@@ -2,14 +2,23 @@
   @apply bg-defaultBtnColor 
     rounded-[20px] 
     w-[420px] 
-    h-[80px]
-    text-[32px];
+    h-[60px]
+    text-[32px]
+    text-[#ffffff];
 }
 
 .btn-disable {
   @apply bg-disableBtnColor 
       rounded-[20px] 
       w-[420px] 
-      h-[80px]
+      h-[60px]
       text-[32px];
+}
+
+.btn-google {
+  @apply bg-white
+  rounded-[20px]
+  w-[420px] 
+  h-[60px]
+  text-[24px];
 }

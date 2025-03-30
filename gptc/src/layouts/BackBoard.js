@@ -1,4 +1,4 @@
-import '../styles/back-board.css';
+import '../styles/layouts.css';
 
 function BackBoard({ styleClass, children }) {
   return (

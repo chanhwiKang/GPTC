@@ -1,0 +1,29 @@
+.backBoard {
+  @apply bg-[#F7F7F5]
+  w-[500px]
+  h-[700px]
+  rounded-[20px] 
+  border border-[rgb(229,229,225)];
+}
+.side-nav {
+  @apply bg-[#F7F7F5]
+  w-[260px]
+  h-[1080px]
+  border border-[rgb(229,229,225)]
+  flex items-center
+        justify-center;
+}
+.top-nav {
+  @apply bg-[#ffffff]
+  h-[100px]
+  border-b border-[#E5E5E1];
+}
+.footer {
+  @apply bg-[#ffffff]
+  h-[40px]
+  text-[18px]
+  text-black
+  flex 
+  items-center
+  justify-center;
+}

@@ -2,10 +2,10 @@
 .input-default {
   @apply rounded-[20px] 
     w-[420px]
-    h-[20px] 
+    h-[50px] 
     placeholder-[defaultPlaceholder] 
     placeholder-opacity-50 
-    placeholder:text-[24px]
-    p-[2.1rem]
+    placeholder:text-[20px]
+    pl-[20px]
     text-[20px];
 }

@@ -15,3 +15,7 @@
   @apply text-green-500
     text-[18px];
 }
+.terms-of-use {
+  @apply text-[#a0a0a0]
+  text-[18px];
+}
