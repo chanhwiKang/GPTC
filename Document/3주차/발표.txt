@@ -1,0 +1,23 @@
+PDF 업로드 -> 텍스트 추출 -> CHAT GPT API -> 모의 시험 생성 -> 채점 및 해설 -> 학습 통계
+
+회원테이블
+서버에 PDF 텍스트 추출해서 저장
+회원번호 - 제목 - pdf 테이블
+
+
+
+Front - react
+css - tailwind
+학습 분석 시각화  - recharts
+
+Backend - Spring boot
+pdf 추출 - pdfbox
+빌드 자동화 - gradle
+GPT-4o mini
+lombok
+
+
+타겟 사용자
+수험생
+대학생
+선생님
