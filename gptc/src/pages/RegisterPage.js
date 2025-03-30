@@ -1,6 +1,6 @@
 import SideNav from '../layouts/SideNav';
 import TopNav from '../layouts/TopNav';
-import FindPasswordForm from '../components/FindPasswordForm';
+import RegisterForm1 from '../components/RegisterForm1';
 import Footer from '../layouts/Footer';
 
 function RegisterPage() {
@@ -13,7 +13,7 @@ function RegisterPage() {
         <TopNav />
 
         <div className="flex flex-1 items-center justify-center">
-          <FindPasswordForm />
+          <RegisterForm1 />
         </div>
 
         <Footer />

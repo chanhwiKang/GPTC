@@ -1,10 +1,3 @@
-// import LoginForm from './components/LoginForm';
-// import RegisterForm1 from './components/RegisterForm1';
-// import RegisterForm2 from './components/RegisterForm2';
-// import FindPassword from './components/FindPassword';
-// import ChangePassword from './components/ChangePassword';
-import SideNav from './layouts/SideNav';
-import TopNav from './layouts/TopNav';
 import RegisterPage from './pages/RegisterPage';
 
 function App() {
