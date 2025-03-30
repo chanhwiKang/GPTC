@@ -2,6 +2,7 @@ import { useState } from 'react';
 import DefaultButton from './DefaultButton';
 import BackBoard from '../layouts/BackBoard';
 import '../styles/form-element.css';
+import '../styles/layouts.css';
 import InputForm from './InputForm';
 
 function RegisterForm() {
@@ -14,18 +15,9 @@ function RegisterForm() {
   return (
     <BackBoard>
       <div>
-        <div
-          className="
-        title
-        flex items-center
-        justify-center
-        pt-[70px]
-        "
-        >
-          회원가입
-        </div>
+        <div className="title">회원가입</div>
 
-        <div className="pt-[65px]">
+        <div className="input-div">
           <div>
             <InputForm
               type="email"

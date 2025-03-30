@@ -11,17 +11,8 @@ function LoginForm() {
   return (
     <BackBoard>
       <div>
-        <div
-          className="
-        title
-        flex items-center
-        justify-center
-        pt-[70px]
-        "
-        >
-          비밀번호 변경
-        </div>
-        <div className="pt-[55px]">
+        <div className="title">비밀번호 변경</div>
+        <div className="input-div">
           <div>
             <InputForm
               type="password"

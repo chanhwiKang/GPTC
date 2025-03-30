@@ -22,3 +22,26 @@
   h-[60px]
   text-[24px];
 }
+@media (max-width: 1470px) {
+  .btn-default {
+    @apply rounded-[20px] 
+      w-[321px]
+      h-[50px] 
+      text-[20px];
+  }
+  .btn-disable {
+    @apply bg-disableBtnColor 
+        rounded-[20px] 
+        w-[321px]
+        h-[50px] 
+        text-[20px];
+  }
+
+  .btn-google {
+    @apply bg-white
+    rounded-[20px]
+    w-[321px]
+    h-[50px] 
+    text-[20px];
+  }
+}

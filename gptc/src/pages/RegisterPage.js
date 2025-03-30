@@ -1,19 +1,19 @@
 import SideNav from '../layouts/SideNav';
 import TopNav from '../layouts/TopNav';
-import RegisterForm1 from '../components/RegisterForm1';
+import FindPasswordForm from '../components/FindPasswordForm';
 import Footer from '../layouts/Footer';
 
 function RegisterPage() {
   return (
     <div className="flex h-screen">
-      <SideNav className="" />
+      <SideNav />
 
       {/* 메인 컨텐츠 영역 */}
-      <div className="w-[100%]">
+      <div className="flex flex-col flex-1">
         <TopNav />
 
-        <div className="min-h-screen flex items-center justify-center">
-          <RegisterForm1 />
+        <div className="flex flex-1 items-center justify-center">
+          <FindPasswordForm />
         </div>
 
         <Footer />

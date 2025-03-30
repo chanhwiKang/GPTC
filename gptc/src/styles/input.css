@@ -9,3 +9,15 @@
     pl-[20px]
     text-[20px];
 }
+@media (max-width: 1470px) {
+  .input-default {
+    @apply rounded-[20px] 
+      w-[321px]
+      h-[40px] 
+      placeholder-[defaultPlaceholder] 
+      placeholder-opacity-50 
+      placeholder:text-[20px]
+      pl-[20px]
+      text-[20px];
+  }
+}

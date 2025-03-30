@@ -1,0 +1,8 @@
+.img-google {
+  @apply w-[54px] h-[55px] ml-[10px];
+}
+@media (max-width: 1470px) {
+  .img-google {
+    @apply w-[34px] h-[35px] ml-[10px];
+  }
+}

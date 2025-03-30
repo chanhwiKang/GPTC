@@ -1,5 +1,6 @@
 import '../styles/buttons.css';
-
+import '../styles/imgs.css';
+import '../styles/layouts.css';
 function GoogleButton({ text, styleClass = '', isEnabled }) {
   return (
     <div>
@@ -11,13 +12,11 @@ function GoogleButton({ text, styleClass = '', isEnabled }) {
         <img
           src="/assets/googleIcon.png"
           alt="googleImg"
-          className="w-[54px] h-[55px] ml-[10px]"
+          className="img-google"
         />
 
         {/* 버튼 중앙에 오는 텍스트 */}
-        <span className="absolute left-1/2 transform -translate-x-1/2 text-[24px]">
-          {text}
-        </span>
+        <span className="txt-google">{text}</span>
       </button>
     </div>
   );

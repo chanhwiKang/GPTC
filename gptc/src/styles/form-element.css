@@ -1,6 +1,9 @@
 /* styles/form-element.css */
 .title {
   @apply text-black
+  flex items-center
+  justify-center
+  pt-[70px]
     text-[40px];
 }
 .input-title {
@@ -18,4 +21,13 @@
 .terms-of-use {
   @apply text-[#a0a0a0]
   text-[18px];
+}
+@media (max-width: 1470px) {
+  .title {
+    @apply text-black
+    flex items-center
+    justify-center
+    pt-[20px]
+      text-[35px];
+  }
 }

@@ -1,14 +1,22 @@
 .backBoard {
   @apply bg-[#F7F7F5]
+  flex items-center
+  justify-center
   w-[500px]
   h-[700px]
   rounded-[20px] 
   border border-[rgb(229,229,225)];
 }
+.input-div {
+  @apply pt-[55px];
+}
+.txt-google {
+  @apply absolute left-1/2 transform -translate-x-1/2 text-[24px];
+}
 .side-nav {
   @apply bg-[#F7F7F5]
   w-[260px]
-  h-[1080px]
+  h-screen
   border border-[rgb(229,229,225)]
   flex items-center
         justify-center;
@@ -26,4 +34,29 @@
   flex 
   items-center
   justify-center;
+}
+@media (max-width: 1470px) {
+  .backBoard {
+    @apply w-[383px]
+    h-[536px]
+    rounded-[20px] 
+    border border-[rgb(229,229,225)];
+  }
+  .input-div {
+    @apply pt-[15px];
+  }
+  .txt-google {
+    @apply text-[19px];
+  }
+  .side-nav {
+    @apply w-[200px];
+  }
+  .top-nav {
+    @apply h-[76px];
+  }
+  .footer {
+    @apply bg-[#ffffff]
+    h-[30px]
+    text-[14px];
+  }
 }

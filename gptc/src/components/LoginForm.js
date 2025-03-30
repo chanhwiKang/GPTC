@@ -8,17 +8,8 @@ function LoginForm() {
   return (
     <BackBoard>
       <div>
-        <div
-          className="
-        title
-        flex items-center
-        justify-center
-        pt-[70px]
-        "
-        >
-          환영합니다!
-        </div>
-        <div className="pt-[65px]">
+        <div className="title">환영합니다!</div>
+        <div className="input-div">
           <div>
             <InputForm type="email" isValidationRequired={false} />
           </div>
