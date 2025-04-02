@@ -17,7 +17,7 @@ function TopNav({ styleClass, isLogined = false }) {
             <DefaultButton
               styleClass="btn-signup"
               text="회원가입"
-              onClick={() => navigate('/signup')}
+              onClick={() => navigate('/signup1')}
             />
           </>
         )}

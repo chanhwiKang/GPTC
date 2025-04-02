@@ -1,6 +1,13 @@
 import '../styles/input.css';
 
-function DefaultInput({ placeholder, styleClass, onChange, value, type }) {
+function DefaultInput({
+  placeholder,
+  styleClass,
+  onChange,
+  value,
+  type,
+  name,
+}) {
   return (
     <input
       type={type === 'password' || type === 'password-re' ? 'password' : 'text'}
@@ -8,6 +15,7 @@ function DefaultInput({ placeholder, styleClass, onChange, value, type }) {
       placeholder={placeholder}
       onChange={onChange}
       value={value}
+      name={name}
     />
   );
 }

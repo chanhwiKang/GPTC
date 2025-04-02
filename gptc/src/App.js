@@ -4,19 +4,21 @@ import SignUpForm1 from './pages/SignUpForm1';
 import SignUpForm2 from './pages/SignUpForm2';
 import LoginForm from './pages/LoginForm';
 import MainForm from './pages/MainForm';
-
+import { SignUpProvider } from './context/SignUpContext';
 function App() {
   return (
-    <Router>
-      <FullLayout>
-        <Routes>
-          <Route path="/" element={<MainForm />} />
-          <Route path="/signup1" element={<SignUpForm1 />} />
-          <Route path="/signup2" element={<SignUpForm2 />} />
-          <Route path="/login" element={<LoginForm />} />
-        </Routes>
-      </FullLayout>
-    </Router>
+    <SignUpProvider>
+      <Router>
+        <FullLayout>
+          <Routes>
+            <Route path="/" element={<MainForm />} />
+            <Route path="/signup1" element={<SignUpForm1 />} />
+            <Route path="/signup2" element={<SignUpForm2 />} />
+            <Route path="/login" element={<LoginForm />} />
+          </Routes>
+        </FullLayout>
+      </Router>
+    </SignUpProvider>
   );
 }
 

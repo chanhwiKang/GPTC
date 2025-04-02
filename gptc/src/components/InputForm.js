@@ -7,9 +7,11 @@ function InputForm({
   password,
   setPassword,
   isValidationRequired,
+  name,
+  onChange,
+  value,
 }) {
   const [status, setStatus] = useState('n');
-  const [inputValue, setInputValue] = useState('');
 
   let title = '';
   let placeholder = '';
@@ -18,7 +20,6 @@ function InputForm({
 
   const handleInputChange = (e) => {
     const value = e.target.value;
-    setInputValue(value);
     if (isValidationRequired) {
       if (type === 'email') {
         // 이메일 정규식 (알파벳, 숫자, ., -, _ 만 허용)
@@ -63,6 +64,7 @@ function InputForm({
         }
       }
     }
+    onChange(e);
   };
   if (type === 'email') {
     title = 'Email';
@@ -122,8 +124,9 @@ function InputForm({
       <DefaultInput
         placeholder={placeholder}
         onChange={handleInputChange}
-        value={inputValue}
+        value={value}
         type={type}
+        name={name}
       />
     </div>
   );

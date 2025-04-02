@@ -4,7 +4,8 @@ import BackBoard from '../layouts/BackBoard';
 import '../styles/form-element.css';
 import '../styles/layouts.css';
 import InputForm from '../components/InputForm';
-import { registerUser } from '../services/api';
+import { useNavigate } from 'react-router-dom';
+import { useSignUp } from '../context/SignUpContext';
 
 function SignUpForm1() {
   const [isEmailValid, setIsEmailValid] = useState(false);
@@ -12,35 +13,20 @@ function SignUpForm1() {
   const [isPasswordValid, setIsPasswordValid] = useState(false);
   const [isSamePassword, setIsSamePassword] = useState(false);
   const [password, setPassword] = useState('');
-
-  const [formData, setFormData] = useState({
-    memberName: '',
-    memberEmail: '',
-    memberPw: '',
-  });
-  const [message, setMessage] = useState('');
+  const navigate = useNavigate();
+  const { signUpData, setSignUpData } = useSignUp();
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await registerUser(formData); // Spring Boot 백엔드로 요청
-      setMessage('회원가입 성공!');
-      alert('회원가입 성공:', response?.data);
-    } catch (error) {
-      alert('회원가입 실패:', error);
-      setMessage(
-        '회원가입 실패: ' + (error.response?.data?.message || '서버 오류')
-      );
-    }
+    const { name, value } = e.target;
+    setSignUpData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
   return (
     <BackBoard>
-      <form onSubmit={handleSubmit}>
+      <div>
         <div className="title">회원가입</div>
 
         <div className="input-div">
@@ -49,8 +35,9 @@ function SignUpForm1() {
               type="email"
               onStatusChange={setIsEmailValid}
               isValidationRequired={true}
-              onChange={handleChange}
               name="memberEmail"
+              onChange={handleChange}
+              value={signUpData.memberEmail}
             />
           </div>
           <div className="pt-[15px]">
@@ -58,8 +45,9 @@ function SignUpForm1() {
               type="name"
               onStatusChange={setIsNameValid}
               isValidationRequired={true}
-              onChange={handleChange}
               name="memberName"
+              onChange={handleChange}
+              value={signUpData.memberName}
             />
           </div>
           <div className="pt-[15px]">
@@ -67,10 +55,10 @@ function SignUpForm1() {
               type="password"
               onStatusChange={setIsPasswordValid}
               setPassword={setPassword}
-              value={password}
+              password={signUpData.memberPw}
               isValidationRequired={true}
-              onChange={handleChange}
               name="memberPw"
+              onChange={handleChange}
             />
           </div>
           <div className="pt-[15px]">
@@ -79,6 +67,7 @@ function SignUpForm1() {
               onStatusChange={setIsSamePassword}
               password={password}
               isValidationRequired={true}
+              onChange={handleChange}
             />
           </div>
         </div>
@@ -90,11 +79,10 @@ function SignUpForm1() {
             isEnabled={
               isEmailValid && isNameValid && isPasswordValid && isSamePassword
             }
-            type="submit"
+            onClick={() => navigate('/signup2')}
           />
         </div>
-      </form>
-      {message && <p>{message}</p>}
+      </div>
     </BackBoard>
   );
 }
