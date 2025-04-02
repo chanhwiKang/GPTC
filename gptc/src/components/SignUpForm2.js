@@ -3,7 +3,7 @@ import BackBoard from '../layouts/BackBoard';
 import '../styles/form-element.css';
 import InputForm from './InputForm';
 
-function LoginForm() {
+function SignUpForm2() {
   return (
     <BackBoard>
       <div>
@@ -41,4 +41,4 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+export default SignUpForm2;

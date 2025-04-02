@@ -3,21 +3,38 @@
   @apply rounded-[20px] 
     w-[420px]
     h-[50px] 
-    placeholder-[defaultPlaceholder] 
     placeholder-opacity-50 
     placeholder:text-[20px]
+    placeholder-[defaultPlaceholder] 
     pl-[20px]
     text-[20px];
 }
+.input-create {
+  @apply rounded-[20px]
+  w-[580px]
+  h-[48px] 
+  placeholder-[defaultPlaceholder] 
+  placeholder-opacity-50 
+  placeholder:text-[20px]
+  pl-[20px]
+  text-[24px]
+  border-[#E5E5E1]
+  border-2;
+}
 @media (max-width: 1470px) {
   .input-default {
-    @apply rounded-[20px] 
-      w-[321px]
-      h-[40px] 
-      placeholder-[defaultPlaceholder] 
-      placeholder-opacity-50 
+    @apply w-[321px]
       placeholder:text-[20px]
       pl-[20px]
+      h-[40px] 
       text-[20px];
+    /* placeholder-[defaultPlaceholder] 
+      placeholder-opacity-50 ; */
+  }
+  .input-create {
+    @apply w-[444px]
+    h-[37px] 
+    placeholder:text-[20px]
+    text-[20px];
   }
 }

@@ -5,7 +5,7 @@ import '../styles/form-element.css';
 import '../styles/layouts.css';
 import InputForm from './InputForm';
 
-function RegisterForm() {
+function SignUpForm1() {
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [isNameValid, setIsNameValid] = useState(false);
   const [isPasswordValid, setIsPasswordValid] = useState(false);
@@ -65,4 +65,4 @@ function RegisterForm() {
   );
 }
 
-export default RegisterForm;
+export default SignUpForm1;

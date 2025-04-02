@@ -20,8 +20,35 @@
   rounded-[20px]
   w-[420px] 
   h-[60px]
-  text-[24px];
+  text-[24px]
+  border-[#E5E5E1]
+  border-2;
 }
+
+.btn-create {
+  @apply bg-defaultBtnColor
+  w-[200px] 
+  h-[48px]
+  text-[24px]
+  text-[#ffffff];
+}
+
+.btn-login {
+  @apply bg-black
+  w-[100px] 
+  h-[40px]
+  text-[18px];
+}
+.btn-signup {
+  @apply bg-white
+  w-[100px] 
+  h-[40px]
+  text-[18px]
+  text-black
+  border-[#E5E5E1]
+  border-2;
+}
+
 @media (max-width: 1470px) {
   .btn-default {
     @apply rounded-[20px] 
@@ -43,5 +70,20 @@
     w-[321px]
     h-[50px] 
     text-[20px];
+  }
+  .btn-create {
+    @apply bg-defaultBtnColor
+    w-[153px]
+    h-[36px];
+  }
+  .btn-login {
+    @apply w-[76px] 
+    h-[30px]
+    text-[15px];
+  }
+  .btn-signup {
+    @apply w-[76px] 
+    h-[30px]
+    text-[15px];
   }
 }

@@ -30,4 +30,16 @@
     pt-[20px]
       text-[35px];
   }
+  .input-title {
+    @apply text-[15px];
+  }
+  .error-msg {
+    @apply text-[15px];
+  }
+  .correct-msg {
+    @apply text-[15px];
+  }
+  .terms-of-use {
+    @apply text-[15px];
+  }
 }

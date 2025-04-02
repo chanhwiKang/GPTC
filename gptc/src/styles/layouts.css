@@ -7,6 +7,16 @@
   rounded-[20px] 
   border border-[rgb(229,229,225)];
 }
+.main-back-board {
+  @apply bg-[#F7F7F5]
+  flex items-center
+  justify-center
+  w-[72%] h-[57%]
+  rounded-[20px] 
+  border border-[rgb(229,229,225)]
+  
+  mt-[2%];
+}
 .input-div {
   @apply pt-[55px];
 }
@@ -24,7 +34,11 @@
 .top-nav {
   @apply bg-[#ffffff]
   h-[100px]
-  border-b border-[#E5E5E1];
+  border-b border-[#E5E5E1]
+  flex
+  justify-end
+  items-center
+  px-6;
 }
 .footer {
   @apply bg-[#ffffff]

@@ -4,7 +4,7 @@ import BackBoard from '../layouts/BackBoard';
 import '../styles/form-element.css';
 import InputForm from './InputForm';
 
-function LoginForm() {
+function ChangePasswordForm() {
   const [isPasswordValid, setIsPasswordValid] = useState(false);
   const [isSamePassword, setIsSamePassword] = useState(false);
   const [password, setPassword] = useState('');
@@ -45,4 +45,4 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+export default ChangePasswordForm;
