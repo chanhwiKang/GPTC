@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import DefaultButton from './DefaultButton';
+import DefaultButton from '../components/DefaultButton';
 import BackBoard from '../layouts/BackBoard';
 import '../styles/form-element.css';
-import InputForm from './InputForm';
+import InputForm from '../components/InputForm';
 
 function ChangePasswordForm() {
   const [isPasswordValid, setIsPasswordValid] = useState(false);

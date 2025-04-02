@@ -1,11 +1,23 @@
-import Main from './pages/MainPage';
-import SignUpPage from './pages/SignUpPage';
-import LoginPage from './pages/LoginPage';
-import ChangePasswordPage from './pages/ChangePasswordPage';
-import FindPasswordPage from './pages/FindPasswordPage';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import FullLayout from './layouts/FullLayout';
+import SignUpForm1 from './pages/SignUpForm1';
+import SignUpForm2 from './pages/SignUpForm2';
+import LoginForm from './pages/LoginForm';
+import MainForm from './pages/MainForm';
 
 function App() {
-  return <FindPasswordPage />;
+  return (
+    <Router>
+      <FullLayout>
+        <Routes>
+          <Route path="/" element={<MainForm />} />
+          <Route path="/signup1" element={<SignUpForm1 />} />
+          <Route path="/signup2" element={<SignUpForm2 />} />
+          <Route path="/login" element={<LoginForm />} />
+        </Routes>
+      </FullLayout>
+    </Router>
+  );
 }
 
 export default App;

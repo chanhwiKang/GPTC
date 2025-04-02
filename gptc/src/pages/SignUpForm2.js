@@ -1,13 +1,14 @@
-import DefaultButton from './DefaultButton';
+import DefaultButton from '../components/DefaultButton';
 import BackBoard from '../layouts/BackBoard';
 import '../styles/form-element.css';
-import InputForm from './InputForm';
+import InputForm from '../components/InputForm';
 
-function FindPasswordForm() {
+function SignUpForm2() {
   return (
     <BackBoard>
       <div>
-        <div className="title">비밀번호 찾기</div>
+        <div className="title">회원가입</div>
+
         <div className="input-div">
           <div>
             <InputForm type="email" isValidationRequired={false} />
@@ -24,8 +25,15 @@ function FindPasswordForm() {
           <div>
             <InputForm type="Authentication" isValidationRequired={false} />
           </div>
-          <div className="pt-[95px]">
-            <DefaultButton text="다음" styleClass="" isEnabled={true} />
+          <div className="pt-[30px] terms-of-use flex justify-center text-center">
+            이용약관 및 개인정보처리방침
+          </div>
+          <div className="pt-[25px]">
+            <DefaultButton
+              text="동의하고 시작하기"
+              styleClass=""
+              isEnabled={true}
+            />
           </div>
         </div>
       </div>
@@ -33,4 +41,4 @@ function FindPasswordForm() {
   );
 }
 
-export default FindPasswordForm;
+export default SignUpForm2;

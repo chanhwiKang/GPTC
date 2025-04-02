@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import DefaultButton from './DefaultButton';
+import DefaultButton from '../components/DefaultButton';
 import BackBoard from '../layouts/BackBoard';
 import '../styles/form-element.css';
 import '../styles/layouts.css';
-import InputForm from './InputForm';
+import InputForm from '../components/InputForm';
+import { registerUser } from '../services/api';
 
 function SignUpForm1() {
   const [isEmailValid, setIsEmailValid] = useState(false);
@@ -12,9 +13,34 @@ function SignUpForm1() {
   const [isSamePassword, setIsSamePassword] = useState(false);
   const [password, setPassword] = useState('');
 
+  const [formData, setFormData] = useState({
+    memberName: '',
+    memberEmail: '',
+    memberPw: '',
+  });
+  const [message, setMessage] = useState('');
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await registerUser(formData); // Spring Boot 백엔드로 요청
+      setMessage('회원가입 성공!');
+      alert('회원가입 성공:', response?.data);
+    } catch (error) {
+      alert('회원가입 실패:', error);
+      setMessage(
+        '회원가입 실패: ' + (error.response?.data?.message || '서버 오류')
+      );
+    }
+  };
+
   return (
     <BackBoard>
-      <div>
+      <form onSubmit={handleSubmit}>
         <div className="title">회원가입</div>
 
         <div className="input-div">
@@ -23,6 +49,8 @@ function SignUpForm1() {
               type="email"
               onStatusChange={setIsEmailValid}
               isValidationRequired={true}
+              onChange={handleChange}
+              name="memberEmail"
             />
           </div>
           <div className="pt-[15px]">
@@ -30,6 +58,8 @@ function SignUpForm1() {
               type="name"
               onStatusChange={setIsNameValid}
               isValidationRequired={true}
+              onChange={handleChange}
+              name="memberName"
             />
           </div>
           <div className="pt-[15px]">
@@ -39,6 +69,8 @@ function SignUpForm1() {
               setPassword={setPassword}
               value={password}
               isValidationRequired={true}
+              onChange={handleChange}
+              name="memberPw"
             />
           </div>
           <div className="pt-[15px]">
@@ -58,9 +90,11 @@ function SignUpForm1() {
             isEnabled={
               isEmailValid && isNameValid && isPasswordValid && isSamePassword
             }
+            type="submit"
           />
         </div>
-      </div>
+      </form>
+      {message && <p>{message}</p>}
     </BackBoard>
   );
 }

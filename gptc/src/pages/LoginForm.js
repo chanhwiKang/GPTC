@@ -1,8 +1,8 @@
-import DefaultButton from './DefaultButton';
+import DefaultButton from '../components/DefaultButton';
 import BackBoard from '../layouts/BackBoard';
 import '../styles/form-element.css';
-import InputForm from './InputForm';
-import GoogleButton from './GoogleButton';
+import InputForm from '../components/InputForm';
+import GoogleButton from '../components/GoogleButton';
 
 function LoginForm() {
   return (

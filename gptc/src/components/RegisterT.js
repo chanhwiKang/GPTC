@@ -2,30 +2,30 @@ import { useState } from 'react';
 import { registerUser } from '../services/api';
 
 function RegisterForm() {
-  const [formData, setFormData] = useState({
-    memberName: '',
-    memberEmail: '',
-    memberPw: '',
-  });
-  const [message, setMessage] = useState('');
+  // const [formData, setFormData] = useState({
+  //   memberName: '',
+  //   memberEmail: '',
+  //   memberPw: '',
+  // });
+  // const [message, setMessage] = useState('');
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  // const handleChange = (e) => {
+  //   setFormData({ ...formData, [e.target.name]: e.target.value });
+  // };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await registerUser(formData);
-      setMessage('회원가입 성공!');
-      alert('회원가입 성공:', response?.data);
-    } catch (error) {
-      alert('회원가입 실패:', error);
-      setMessage(
-        '회원가입 실패: ' + (error.response?.data?.message || '서버 오류')
-      );
-    }
-  };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await registerUser(formData);
+  //     setMessage('회원가입 성공!');
+  //     alert('회원가입 성공:', response?.data);
+  //   } catch (error) {
+  //     alert('회원가입 실패:', error);
+  //     setMessage(
+  //       '회원가입 실패: ' + (error.response?.data?.message || '서버 오류')
+  //     );
+  //   }
+  // };
 
   return (
     <div>
