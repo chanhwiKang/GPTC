@@ -7,6 +7,7 @@ function DefaultInput({
   value,
   type,
   name,
+  ...props
 }) {
   return (
     <input
@@ -16,6 +17,7 @@ function DefaultInput({
       onChange={onChange}
       value={value}
       name={name}
+      {...props}
     />
   );
 }

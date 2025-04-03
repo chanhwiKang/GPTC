@@ -79,7 +79,7 @@ function InputForm({
     }
   } else if (type === 'name') {
     title = '이름';
-    placeholder = '이메일을 입력해주세요.';
+    placeholder = '이름을 입력해주세요.';
     if (status === 't') {
       statusMessage = '사용할 수 있는 이름입니다!';
       statusClass = 'correct-msg';
@@ -110,7 +110,7 @@ function InputForm({
       statusClass = 'error-msg';
     } else if (status === 'n') {
     }
-  } else if (type === 'Authentication') {
+  } else if (type === 'verifyCode') {
     title = '인증번호';
     placeholder = '인증번호 6자리를 입력해주세요.';
     statusClass = '';

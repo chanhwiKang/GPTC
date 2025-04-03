@@ -3,63 +3,82 @@ import BackBoard from '../layouts/BackBoard';
 import '../styles/form-element.css';
 import InputForm from '../components/InputForm';
 import { useNavigate } from 'react-router-dom';
-import { useSignUp } from '../context/SignUpContext';
 import { useState } from 'react';
-import { registerUser } from '../services/api';
+import { useSignUp } from '../context/SignUpContext';
+import { requestEmailVerification } from '../services/api';
+import { verifyEmailCode } from '../services/api';
 
 function SignUpForm2() {
   const navigate = useNavigate();
   const { signUpData } = useSignUp();
-  const [message, setMessage] = useState('');
+  const [isVerifyCodeSent, setIsVerifyCodeSent] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log('📌 전송할 회원가입 데이터:', signUpData); // ✅ 백엔드로 보낼 데이터 확인
-
-    try {
-      const response = await registerUser(signUpData);
-      setMessage('회원가입 성공!');
-      alert('회원가입 성공:', response?.data);
-      console.log(response?.data);
-      // navigate('/login') // 회원가입후 로그인 페이지 이동
-    } catch (error) {
-      alert('회원가입 실패:', error);
-      setMessage(
-        '회원가입 실패: ' + (error.response?.data?.message || '서버 오류')
-      );
-    }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
   };
+
+  const handleSendEmail = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await requestEmailVerification(signUpData.memberEmail, 'SIGNUP');
+        alert("인증번호가 전송되었습니다." + response);
+        setIsVerifyCodeSent(true);
+    } catch (error) {
+        alert("인증번호 요청 실패!" + error);
+    }
+};
+
+const handleVerifyCode = async (e) => {
+  e.preventDefault();
+    try {
+        let code = document.querySelector('input[name="verifyCode"]')?.value;
+        const response = await verifyEmailCode(signUpData.memberEmail, 'SIGNUP', code);
+        alert("인증 성공!" + response);
+        navigate('/');
+    } catch (error) {
+        alert("인증 실패!" + error);
+    }
+};
 
   return (
     <BackBoard>
       <div>
-        <div className="title">회원가입</div>
+        <div className="title">이메일 인증</div>
 
         <div className="input-div">
           <div>
-            <InputForm type="email" isValidationRequired={false} />
+            <InputForm 
+            type="email" 
+            isValidationRequired={false} 
+            name="memberEmail"
+            value={signUpData.memberEmail}
+            readonly
+            />
           </div>
           <div className="pt-[40px]">
             <DefaultButton
-              text="30:00 / 인증번호 전송"
+              text="60:00 / 인증번호 전송"
               styleClass=""
-              isEnabled={true}
+              isEnabled={!isVerifyCodeSent}
+              onClick={handleSendEmail}
             />
           </div>
         </div>
         <div className="pt-[40px]">
           <div>
-            <InputForm type="Authentication" isValidationRequired={false} />
+            <InputForm type="verifyCode" 
+            isValidationRequired={false} 
+            name="verifyCode"
+            onChange={handleChange}
+            />
           </div>
-          <div className="pt-[30px] terms-of-use flex justify-center text-center">
-            이용약관 및 개인정보처리방침
-          </div>
+          <div className="pt-[30px]"></div>
           <div className="pt-[25px]">
             <DefaultButton
               text="동의하고 시작하기"
               styleClass=""
-              isEnabled={true}
-              onClick={handleSubmit}
+              isEnabled={isVerifyCodeSent}
+              onClick={handleVerifyCode}
             />
           </div>
         </div>

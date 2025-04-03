@@ -3,45 +3,50 @@ package com.gptc.service;
 import com.gptc.dto.MemberDto;
 import com.gptc.entity.Member;
 import com.gptc.repository.MemberRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class MemberService {
 
-    @Autowired
-    private MemberRepository memberRepository;
+    private final MemberRepository memberRepository;
+    private final BCryptPasswordEncoder passwordEncoder;
 
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;  // 비밀번호 암호화를 위한 BCryptPasswordEncoder
+    public MemberService(MemberRepository memberRepository, BCryptPasswordEncoder passwordEncoder) {
+        this.memberRepository = memberRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     // 회원가입 처리
     public void signUp(MemberDto memberDto) {
-        // 이미 존재하는 이메일인지 확인
+        // 이메일 중복 체크
         if (memberRepository.findByMemberEmail(memberDto.getMemberEmail()).isPresent()) {
             throw new RuntimeException("이미 존재하는 이메일입니다.");
         }
 
-        // 비밀번호 암호화
-        String encodedPassword = passwordEncoder.encode(memberDto.getMemberPw());
-
-        // Member 엔티티 생성 후 저장
+        // 비밀번호 암호화 후 저장
         Member member = new Member();
         member.setMemberName(memberDto.getMemberName());
         member.setMemberEmail(memberDto.getMemberEmail());
-        member.setMemberPw(encodedPassword);
-
-        memberRepository.save(member);  // 회원 데이터 저장
+        member.setMemberPw(passwordEncoder.encode(memberDto.getMemberPw()));
+        memberRepository.save(member);
     }
 
-    // 로그인 인증 처리
+    // 로그인 처리
     public boolean authenticate(MemberDto memberDto) {
-        // 이메일로 회원 조회
-        Member member = memberRepository.findByMemberEmail(memberDto.getMemberEmail())
-                .orElseThrow(() -> new RuntimeException("사용자를 찾을 수 없습니다"));
+        Optional<Member> optionalMember = memberRepository.findByMemberEmail(memberDto.getMemberEmail());
+        if (optionalMember.isEmpty()) {
+            return false;
+        }
+        Member member = optionalMember.get();
+        return passwordEncoder.matches(memberDto.getMemberPw(), member.getMemberPw());
+    }
 
-        // 비밀번호 확인
-        return passwordEncoder.matches(memberDto.getMemberPw(), member.getMemberPw());  // 비밀번호 일치 여부 체크
+    // 이메일 인증 여부 확인
+    public boolean isEmailVerified(String email) {
+        Optional<Member> optionalMember = memberRepository.findByMemberEmail(email);
+        return optionalMember.map(Member::getMemberEmailVerified).orElse(false);
     }
 }

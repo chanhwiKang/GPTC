@@ -4,8 +4,9 @@ import BackBoard from '../layouts/BackBoard';
 import '../styles/form-element.css';
 import '../styles/layouts.css';
 import InputForm from '../components/InputForm';
-import { useNavigate } from 'react-router-dom';
 import { useSignUp } from '../context/SignUpContext';
+import { useNavigate } from 'react-router-dom';
+import { registerUser } from '../services/api';
 
 function SignUpForm1() {
   const [isEmailValid, setIsEmailValid] = useState(false);
@@ -22,6 +23,20 @@ function SignUpForm1() {
       ...prevData,
       [name]: value,
     }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log('📌 전송할 회원가입 데이터:', signUpData); // ✅ 백엔드로 보낼 데이터 확인
+
+    try {
+      const response = await registerUser(signUpData);
+      alert('회원가입 성공:' + response);
+      console.log(response?.data);
+      navigate('/signup2') // 이메일인증페이지 이동
+    } catch (error) {
+      alert('회원가입 실패:', error);
+    }
   };
 
   return (
@@ -79,7 +94,7 @@ function SignUpForm1() {
             isEnabled={
               isEmailValid && isNameValid && isPasswordValid && isSamePassword
             }
-            onClick={() => navigate('/signup2')}
+            onClick={handleSubmit}
           />
         </div>
       </div>

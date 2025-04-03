@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "member")
@@ -33,7 +34,13 @@ public class Member {
     private LocalDate memberDate;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Study> studies;
+    private List<Study> studies; //학습 테이블 연결
+
+    @Column(name = "memberEmailVerified", nullable = false)
+    private Boolean memberEmailVerified = false;  // 기본값: 인증되지 않음
+
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<EmailVerification> emailVerifications;
 
     @PrePersist
     public void prePersist() {
