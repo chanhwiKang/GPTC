@@ -1,22 +1,10 @@
 import '../../styles/input.css';
 
-function DefaultInput({
-  placeholder,
-  styleClass,
-  onChange,
-  value,
-  type,
-  name,
-  ...props
-}) {
+function DefaultInput({ type, className = '', ...props }) {
   return (
     <input
       type={type === 'password' || type === 'password-re' ? 'password' : 'text'}
-      className={`input-default ${styleClass}`}
-      placeholder={placeholder}
-      onChange={onChange}
-      value={value}
-      name={name}
+      className={`input-default ${className}`}
       {...props}
     />
   );

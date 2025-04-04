@@ -1,15 +1,20 @@
 import DefaultInput from '../atomic_cpnt/DefaultInput';
 import { useState } from 'react';
+import {
+  validateEmail,
+  validateName,
+  validatePw,
+} from '../../utils/validators';
 
 function InputForm({
-  onStatusChange,
   type,
-  password,
-  setPassword,
+  onStatusChange,
   isValidationRequired,
   name,
   onChange,
   value,
+  password,
+  setPassword,
 }) {
   const [status, setStatus] = useState('n');
 
@@ -19,52 +24,25 @@ function InputForm({
   let statusClass = '';
 
   const handleInputChange = (e) => {
+    //유효성 검증
     const value = e.target.value;
     if (isValidationRequired) {
       if (type === 'email') {
-        // 이메일 정규식 (알파벳, 숫자, ., -, _ 만 허용)
-        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        // 특수문자 체크 (허용된 문자 외에 다른 특수문자가 있는지 확인)
-        const specialCharRegex = /[^a-zA-Z0-9._@-]/;
-
-        if (specialCharRegex.test(value) || !emailRegex.test(value)) {
-          setStatus('f'); // 특수문자가 포함되었거나 이메일 형식이 아니면 'f'
-          onStatusChange(false);
-        } else {
-          setStatus('t'); // 올바른 이메일 형식이면 't'
-          onStatusChange(true);
-        }
+        setStatus(validateEmail(value) ? 't' : 'f');
+        onStatusChange(validateEmail(value));
       } else if (type === 'name') {
-        const nameRegex = /^[a-zA-Z가-힣]+$/;
-        if (!nameRegex.test(value)) {
-          setStatus('f');
-          onStatusChange(false);
-        } else {
-          setStatus('t');
-          onStatusChange(true);
-        }
+        setStatus(validateName(value) ? 't' : 'f');
+        onStatusChange(validateName(value));
       } else if (type === 'password') {
-        const passwordRegex =
-          /^(?=.*[a-zA-Z]|\d|[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
         setPassword(value);
-        if (!passwordRegex.test(value)) {
-          setStatus('f');
-          onStatusChange(false);
-        } else {
-          setStatus('t');
-          onStatusChange(true);
-        }
+        setStatus(validatePw(value) ? 't' : 'f');
+        onStatusChange(validatePw(value));
       } else if (type === 'password-re') {
-        if (value !== password) {
-          setStatus('f');
-          onStatusChange(false);
-        } else {
-          setStatus('t');
-          onStatusChange(true);
-        }
+        setStatus(value === password ? 't' : 'f');
+        onStatusChange(value === password);
       }
     }
-    onChange(e);
+    onChange(e); // 상위 폼에서 작성된 onChage로 트리거된 함수
   };
   if (type === 'email') {
     title = 'Email';
