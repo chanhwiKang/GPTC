@@ -1,5 +1,5 @@
 import '../styles/layouts.css';
-import DefaultButton from '../components/DefaultButton';
+import DefaultButton from '../components/atomic_cpnt/DefaultButton';
 import { useNavigate } from 'react-router-dom';
 
 function TopNav({ styleClass, isLogined = false }) {

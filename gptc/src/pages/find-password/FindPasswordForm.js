@@ -1,5 +1,5 @@
 import DefaultButton from '../components/DefaultButton';
-import BackBoard from '../layouts/BackBoard';
+import BackBoard from '../../layouts/BackBoard';
 import '../styles/form-element.css';
 import InputForm from '../components/InputForm';
 

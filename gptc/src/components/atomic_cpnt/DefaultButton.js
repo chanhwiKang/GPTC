@@ -1,4 +1,4 @@
-import '../styles/buttons.css';
+import '../../styles/buttons.css';
 
 function DefaultButton({ text, styleClass = '', isEnabled = true, onClick }) {
   return (

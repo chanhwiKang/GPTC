@@ -1,4 +1,4 @@
-import '../styles/input.css';
+import '../../styles/input.css';
 
 function CreateInput({ placeholder, styleClass, onChange, value, type }) {
   return (

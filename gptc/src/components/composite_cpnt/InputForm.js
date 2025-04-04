@@ -1,4 +1,4 @@
-import DefaultInput from './DefaultInput';
+import DefaultInput from '../atomic_cpnt/DefaultInput';
 import { useState } from 'react';
 
 function InputForm({

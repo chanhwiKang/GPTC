@@ -1,4 +1,4 @@
-import FullLayout from '../layouts/FullLayout';
+import FullLayout from '../../layouts/FullLayout';
 import ChangePasswordForm from '../components/ChangePasswordForm';
 
 function ChangePasswordPage() {

@@ -1,6 +1,6 @@
-import '../styles/buttons.css';
-import '../styles/imgs.css';
-import '../styles/layouts.css';
+import '../../styles/buttons.css';
+import '../../styles/imgs.css';
+import '../../styles/layouts.css';
 function GoogleButton({ text, styleClass = '', isEnabled }) {
   return (
     <div>

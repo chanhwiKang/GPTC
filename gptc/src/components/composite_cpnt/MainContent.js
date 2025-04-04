@@ -1,5 +1,5 @@
-import '../styles/layouts.css';
-import MainBackBoard from '../layouts/MainBackBoard';
+import '../../styles/layouts.css';
+import MainBackBoard from '../../layouts/MainBackBoard';
 
 function MainContent() {
   return (

@@ -1,4 +1,4 @@
-import FullLayout from '../layouts/FullLayout';
+import FullLayout from '../../layouts/FullLayout';
 import MainForm from './MainForm';
 
 function MainHead(text) {

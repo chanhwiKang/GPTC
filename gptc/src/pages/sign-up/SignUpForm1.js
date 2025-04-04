@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import DefaultButton from '../components/DefaultButton';
-import BackBoard from '../layouts/BackBoard';
-import '../styles/form-element.css';
-import '../styles/layouts.css';
-import InputForm from '../components/InputForm';
-import { useSignUp } from '../context/SignUpContext';
+import DefaultButton from '../../components/atomic_cpnt/DefaultButton';
+import BackBoard from '../../layouts/BackBoard';
+import '../../styles/form-element.css';
+import '../../styles/layouts.css';
+import InputForm from '../../components/composite_cpnt/InputForm';
+import { useSignUp } from '../../context/SignUpContext';
 import { useNavigate } from 'react-router-dom';
-import { registerUser } from '../services/api';
+import { registerUser } from '../../services/api';
 
 function SignUpForm1() {
   const [isEmailValid, setIsEmailValid] = useState(false);
@@ -33,7 +33,7 @@ function SignUpForm1() {
       const response = await registerUser(signUpData);
       alert('회원가입 성공:' + response);
       console.log(response?.data);
-      navigate('/signup2') // 이메일인증페이지 이동
+      navigate('/signup2'); // 이메일인증페이지 이동
     } catch (error) {
       alert('회원가입 실패:', error);
     }

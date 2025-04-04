@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import DefaultButton from '../components/DefaultButton';
-import BackBoard from '../layouts/BackBoard';
-import '../styles/form-element.css';
-import InputForm from '../components/InputForm';
-import GoogleButton from '../components/GoogleButton';
+import DefaultButton from '../../components/atomic_cpnt/DefaultButton';
+import BackBoard from '../../layouts/BackBoard';
+import '../../styles/form-element.css';
+import InputForm from '../../components/composite_cpnt/InputForm';
+import GoogleButton from '../../components/atomic_cpnt/GoogleButton';
 import { useNavigate } from 'react-router-dom';
-import { useLogin } from '../context/LoginContext';
-import { loginUser } from '../services/api';
+import { useLogin } from '../../context/LoginContext';
+import { loginUser } from '../../services/api';
 
 function LoginForm() {
   const [isEmailValid, setIsEmailValid] = useState(false);
@@ -27,10 +27,10 @@ function LoginForm() {
     e.preventDefault();
     try {
       const response = await loginUser(loginData);
-      alert("로그인 성공!" + response);
+      alert('로그인 성공!' + response);
       navigate('/');
     } catch (err) {
-      alert("이메일 또는 비밀번호가 잘못되었습니다." + err);
+      alert('이메일 또는 비밀번호가 잘못되었습니다.' + err);
     }
   };
 
@@ -51,23 +51,21 @@ function LoginForm() {
           </div>
           <div className="pt-[25px]">
             <InputForm
-                type="password"
-                onStatusChange={setIsPasswordValid}
-                setPassword={setPassword}
-                password={loginData.memberPw}
-                isValidationRequired={true}
-                name="memberPw"
-                onChange={handleChange}
-              />
+              type="password"
+              onStatusChange={setIsPasswordValid}
+              setPassword={setPassword}
+              password={loginData.memberPw}
+              isValidationRequired={true}
+              name="memberPw"
+              onChange={handleChange}
+            />
           </div>
         </div>
         <div className="pt-[40px]">
-        <DefaultButton
+          <DefaultButton
             text="로그인"
             styleClass=""
-            isEnabled={
-              isEmailValid && isPasswordValid
-            }
+            isEnabled={isEmailValid && isPasswordValid}
             onClick={handleLogin}
           />
         </div>

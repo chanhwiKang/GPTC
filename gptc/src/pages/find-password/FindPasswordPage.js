@@ -1,4 +1,4 @@
-import FullLayout from '../layouts/FullLayout';
+import FullLayout from '../../layouts/FullLayout';
 import FindPasswordForm from '../components/FindPasswordForm';
 
 function FindPasswordPage() {
