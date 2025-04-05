@@ -1,13 +1,14 @@
 import { useState } from 'react';
-import DefaultButton from '../../components/atomic_cpnt/DefaultButton';
-import BackBoard from '../../layouts/BackBoard';
-import '../../styles/form-element.css';
-import InputForm from '../../components/composite_cpnt/InputForm';
-import GoogleButton from '../../components/atomic_cpnt/GoogleButton';
+import DefaultButton from '../components/atomic_cpnt/DefaultButton';
+import BackBoard from '../layouts/BackBoard';
+import '../styles/form-element.css';
+import InputForm from '../components/composite_cpnt/InputForm';
+import GoogleButton from '../components/atomic_cpnt/GoogleButton';
 import { useNavigate } from 'react-router-dom';
-import { useLogin } from '../../context/LoginContext';
-import { loginUser } from '../../services/api';
+import { useLogin } from '../context/LoginContext';
+import { loginUser } from '../services/api';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function LoginForm() {
   const [isEmailValid, setIsEmailValid] = useState(false);
@@ -40,9 +41,9 @@ function LoginForm() {
         email: response.email,
         name: response.name,
       };
-  
+
       login(userInfo);
-  
+
       alert('로그인 성공!');
       navigate('/');
     } catch (err) {
@@ -85,9 +86,27 @@ function LoginForm() {
             onClick={handleLogin}
           />
         </div>
-        <div className="pt-[40px]">
-          <hr />
+        <div className="mt-[10px] mb-[10px] flex justify-center text-[20px] text-[#777777] w-full">
+          <div
+            className="
+            w-[210px] xl:w-[150px]
+            h-[40px] 
+            flex text-center items-center justify-center"
+          >
+            <Link to="/signup" className="">
+              회원가입
+            </Link>
+          </div>
+          <div
+            className="
+            w-[210px] xl:w-[150px]
+            h-[40px] 
+            flex text-center items-center justify-center"
+          >
+            <Link to="/find-Pw">비밀번호 찾기</Link>
+          </div>
         </div>
+        <hr />
         <div className="pt-[40px]">
           <GoogleButton text="Google로 로그인" styleClass="" isEnabled={true} />
         </div>

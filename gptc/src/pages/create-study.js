@@ -1,6 +1,6 @@
-import CreateInput from '../../components/atomic_cpnt/CreateInput';
-import DefaultButton from '../../components/atomic_cpnt/DefaultButton';
-import MainContent from '../../components/composite_cpnt/MainContent';
+import CreateInput from '../components/atomic_cpnt/CreateInput';
+import DefaultButton from '../components/atomic_cpnt/DefaultButton';
+import MainContent from '../components/composite_cpnt/MainContent';
 function createStudy() {
   return (
     <FullLayout>

@@ -1,20 +1,20 @@
-import DefaultButton from '../components/DefaultButton';
-import BackBoard from '../../layouts/BackBoard';
+import DefaultButton from '../components/atomic_cpnt/DefaultButton';
+import BackBoard from '../layouts/BackBoard';
 import '../styles/form-element.css';
-import InputForm from '../components/InputForm';
-import { useLogin } from '../../context/LoginContext';
+import InputForm from '../components/composite_cpnt/InputForm';
+import { useLogin } from '../context/LoginContext';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
 function FindPasswordForm() {
-    const { isLoggedIn } = useLogin();
-    const navigate = useNavigate();
-    
-    useEffect(() => {
-      if (isLoggedIn) {
-        navigate('/');
-      }
-    }, [isLoggedIn, navigate]);
+  const { isLoggedIn } = useLogin();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/');
+    }
+  }, [isLoggedIn, navigate]);
 
   return (
     <BackBoard>

@@ -4,6 +4,7 @@
   flex items-center
   justify-center
   pt-[70px]
+  w-full
     text-[40px];
 }
 .input-title {

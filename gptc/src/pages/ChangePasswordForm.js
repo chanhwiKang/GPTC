@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import DefaultButton from '../components/DefaultButton';
-import BackBoard from '../../layouts/BackBoard';
+import BackBoard from '../layouts/BackBoard';
 import '../styles/form-element.css';
 import InputForm from '../components/InputForm';
-import { useLogin } from '../../context/LoginContext';
+import { useLogin } from '../context/LoginContext';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
@@ -13,7 +13,7 @@ function ChangePasswordForm() {
   const [password, setPassword] = useState('');
   const { isLoggedIn } = useLogin();
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     if (isLoggedIn) {
       navigate('/');

@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
-import DefaultButton from '../../components/atomic_cpnt/DefaultButton';
-import BackBoard from '../../layouts/BackBoard';
-import '../../styles/form-element.css';
-import '../../styles/layouts.css';
-import InputForm from '../../components/composite_cpnt/InputForm';
-import { useSignUp } from '../../context/SignUpContext';
+import DefaultButton from '../components/atomic_cpnt/DefaultButton';
+import BackBoard from '../layouts/BackBoard';
+import '../styles/form-element.css';
+import '../styles/layouts.css';
+import InputForm from '../components/composite_cpnt/InputForm';
+import { useSignUp } from '../context/SignUpContext';
 import { useNavigate } from 'react-router-dom';
-import { registerUser } from '../../services/api';
-import { useLogin } from '../../context/LoginContext';
+import { registerUser } from '../services/api';
+import { useLogin } from '../context/LoginContext';
 
 function SignUpForm1() {
   const [isEmailValid, setIsEmailValid] = useState(false);
