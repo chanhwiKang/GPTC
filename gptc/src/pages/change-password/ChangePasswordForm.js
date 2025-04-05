@@ -3,11 +3,23 @@ import DefaultButton from '../components/DefaultButton';
 import BackBoard from '../../layouts/BackBoard';
 import '../styles/form-element.css';
 import InputForm from '../components/InputForm';
+import { useLogin } from '../../context/LoginContext';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function ChangePasswordForm() {
   const [isPasswordValid, setIsPasswordValid] = useState(false);
   const [isSamePassword, setIsSamePassword] = useState(false);
   const [password, setPassword] = useState('');
+  const { isLoggedIn } = useLogin();
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/');
+    }
+  }, [isLoggedIn, navigate]);
+
   return (
     <BackBoard>
       <div>

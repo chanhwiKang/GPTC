@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmailService {
     @Autowired
-    private JavaMailSender mailSender;  // JavaMailSender를 사용하여 이메일 발송
+    private JavaMailSender mailSender;
 
     @Value("${spring.mail.username}")
-    private String fromEmail;  // 발신자 이메일 (application.properties에 설정 필요)
+    private String fromEmail;
 
     public void sendEmail(String to, String subject, String content) {
         try {
@@ -26,6 +26,7 @@ public class EmailService {
             helper.setText(content, true); // HTML 형식 지원
 
             mailSender.send(message);
+
         } catch (MessagingException e) {
             throw new RuntimeException("이메일 발송 실패", e);
         }

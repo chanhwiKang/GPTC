@@ -7,11 +7,21 @@ import { useState } from 'react';
 import { useSignUp } from '../../context/SignUpContext';
 import { requestEmailVerification } from '../../services/api';
 import { verifyEmailCode } from '../../services/api';
+import { useLogin } from '../../context/LoginContext';
+import { useEffect } from 'react';
 
 function SignUpForm2() {
   const navigate = useNavigate();
   const { signUpData } = useSignUp();
   const [isVerifyCodeSent, setIsVerifyCodeSent] = useState(false);
+  const { isLoggedIn } = useLogin();
+  
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/');
+    }
+  }, [isLoggedIn, navigate]);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;

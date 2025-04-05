@@ -1,22 +1,47 @@
-import { createContext, useState, useContext } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
-// Context 생성
 const LoginContext = createContext();
 
-export function LoginProvider({ children }) {
+export const LoginProvider = ({ children }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userInfo, setUserInfo] = useState(null); // { name, email }
   const [loginData, setLoginData] = useState({
     memberEmail: '',
     memberPw: '',
   });
 
+  useEffect(() => {
+    const storedUser = localStorage.getItem('userInfo');
+    if (storedUser) {
+      setUserInfo(JSON.parse(storedUser));
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const login = (info) => {
+    localStorage.setItem('userInfo', JSON.stringify(info));
+    setUserInfo(info);
+    setIsLoggedIn(true);
+  };
+
+  const logout = () => {
+    localStorage.removeItem('userInfo');
+    setUserInfo(null);
+    setIsLoggedIn(false);
+  };
+
   return (
-    <LoginContext.Provider value={{ loginData, setLoginData }}>
+    <LoginContext.Provider value={{ 
+      isLoggedIn, 
+      userInfo, 
+      login, 
+      logout,
+      loginData, 
+      setLoginData,
+      }}>
       {children}
     </LoginContext.Provider>
   );
-}
+};
 
-// Context 사용하기 위한 커스텀 훅
-export function useLogin() {
-  return useContext(LoginContext);
-}
+export const useLogin = () => useContext(LoginContext);

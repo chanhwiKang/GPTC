@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 @RequestMapping("/api/email-verification")
 public class EmailVerificationController {
 
@@ -20,8 +20,6 @@ public class EmailVerificationController {
     @PostMapping("/request")
     public ResponseEntity<String> requestVerification(@RequestParam String email, @RequestParam EmailVerification.VerificationType type) {
         emailVerificationService.sendVerificationCode(email, type);
-        System.out.println(email);
-        System.out.println(type);
         return ResponseEntity.ok("인증번호가 이메일로 전송되었습니다.");
     }
 
@@ -29,9 +27,6 @@ public class EmailVerificationController {
     @PostMapping("/verify")
     public ResponseEntity<String> verifyCode(@RequestParam String email, @RequestParam EmailVerification.VerificationType type, @RequestParam String code) {
         boolean isVerified = emailVerificationService.verifyCode(email, type, code);
-        System.out.println(email);
-        System.out.println(type);
-        System.out.println(code);
         if (isVerified) {
             return ResponseEntity.ok("이메일 인증이 완료되었습니다!");
         } else {

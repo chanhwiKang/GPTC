@@ -41,7 +41,13 @@ public class MemberService {
             return false;
         }
         Member member = optionalMember.get();
+
         return passwordEncoder.matches(memberDto.getMemberPw(), member.getMemberPw());
+    }
+
+    public Member findByEmail(String email) {
+        return memberRepository.findByMemberEmail(email)
+                .orElseThrow(() -> new RuntimeException("사용자를 찾을 수 없습니다."));
     }
 
     // 이메일 인증 여부 확인

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useEffect } from 'react';
 import DefaultButton from '../../components/atomic_cpnt/DefaultButton';
 import BackBoard from '../../layouts/BackBoard';
 import '../../styles/form-element.css';
@@ -7,6 +8,7 @@ import InputForm from '../../components/composite_cpnt/InputForm';
 import { useSignUp } from '../../context/SignUpContext';
 import { useNavigate } from 'react-router-dom';
 import { registerUser } from '../../services/api';
+import { useLogin } from '../../context/LoginContext';
 
 function SignUpForm1() {
   const [isEmailValid, setIsEmailValid] = useState(false);
@@ -16,6 +18,13 @@ function SignUpForm1() {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const { signUpData, setSignUpData } = useSignUp();
+  const { isLoggedIn } = useLogin();
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/');
+    }
+  }, [isLoggedIn, navigate]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,13 +36,13 @@ function SignUpForm1() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('📌 전송할 회원가입 데이터:', signUpData); // ✅ 백엔드로 보낼 데이터 확인
+    console.log('📌 전송할 회원가입 데이터:', signUpData); //백엔드로 보낼 데이터 확인
 
     try {
       const response = await registerUser(signUpData);
       alert('회원가입 성공:' + response);
       console.log(response?.data);
-      navigate('/signup2'); // 이메일인증페이지 이동
+      navigate('/email-verification'); // 이메일인증페이지 이동
     } catch (error) {
       alert('회원가입 실패:', error);
     }

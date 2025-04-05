@@ -14,8 +14,8 @@ function App() {
           <FullLayout>
             <Routes>
               <Route path="/" element={<MainForm />} />
-              <Route path="/signup1" element={<SignUpForm1 />} />
-              <Route path="/signup2" element={<SignUpForm2 />} />
+              <Route path="/signup" element={<SignUpForm1 />} />
+              <Route path="/email-verification" element={<SignUpForm2 />} />
               <Route path="/login" element={<LoginForm />} />
             </Routes>
           </FullLayout>
