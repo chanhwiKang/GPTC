@@ -28,8 +28,11 @@
   w-[260px]
   h-screen
   border border-[rgb(229,229,225)]
-  flex items-center
-        justify-center;
+  flex 
+  items-center
+  flex-col
+  justify-start
+  overflow-y-auto;
 }
 .top-nav {
   @apply bg-[#ffffff]
