@@ -1,10 +1,19 @@
 import { useState } from 'react';
 import '../../styles/form-element.css';
-function AccordionMenu({ studyName, index, activeIndex, setActiveIndex }) {
+function AccordionMenu({
+  studyName,
+  index,
+  activeIndex,
+  setActiveIndex,
+  onClick,
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
     setActiveIndex(index);
+    if (onClick) {
+      onClick();
+    }
   };
   const isActive = activeIndex === index;
   return (

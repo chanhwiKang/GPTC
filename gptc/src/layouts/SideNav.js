@@ -27,7 +27,7 @@ function SideNav({ styleClass }) {
         index={0}
         activeIndex={activeIndex}
         setActiveIndex={setActiveIndex}
-        // onClick={}
+        onClick={() => navigate('/contents-exam')}
       />
       <AccordionMenu
         studyName="나중에입력받기1"

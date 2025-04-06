@@ -1,6 +1,6 @@
 import StudyBtns from './StudyBtns';
 
-function ContentTopNav() {
+function ContentTopNav({ setActiveContent, activeContent }) {
   return (
     <div
       className=" 
@@ -18,7 +18,10 @@ function ContentTopNav() {
       >
         나중에 입력받기
       </div>
-      <StudyBtns />
+      <StudyBtns
+        setActiveContent={setActiveContent}
+        activeContent={activeContent}
+      />
     </div>
   );
 }
