@@ -71,7 +71,62 @@ function Contents() {
         </div>
         <div className="w-px bg-[#C7C5BD]"></div> {/* 세로선 추가 */}
         <div className="w-[50%] flex justify-end items-right 2xl:py-[70px] xl:py-[10px] px-[4px]">
-          <div className=" 2xl:w-[613px] 2xl:h-[498px] xl:w-[500px] xl:h-[498px] overflow-y-auto">
+          <div className=" 2xl:w-[613px] 2xl:h-[498px] xl:w-[500px] xl:h-[410px] overflow-y-auto">
+            <div className="flex 2xl:w-[613px] 2xl:h-[100px] xl:w-[500px] xl:h-[80px] rounded-[20px] border border-[#C7C5BD] mb-[10px]">
+              <div className="2xl:w-[300px] 2xl:h-[100px] xl:w-[240px] xl:h-[80px] text-[24px] flex justify-center items-center">
+                시험 이름
+              </div>
+              <div className="2xl:w-[100px] 2xl:h-[100px] xl:h-[80px] text-[24px] font-bold flex justify-center items-center">
+                미응시
+              </div>
+              <div className="flex-1 2xl:h-[100px] xl:h-[80px] flex justify-center items-center">
+                <button className="btn-exam">시험 응시</button>
+              </div>
+            </div>
+            <div className="flex 2xl:w-[613px] 2xl:h-[100px] xl:w-[500px] xl:h-[80px] rounded-[20px] border border-[#C7C5BD] mb-[10px]">
+              <div className="2xl:w-[300px] 2xl:h-[100px] xl:w-[240px] xl:h-[80px] text-[24px] flex justify-center items-center">
+                시험 이름
+              </div>
+              <div className="2xl:w-[100px] 2xl:h-[100px] xl:h-[80px] text-[24px] font-bold flex justify-center items-center">
+                미응시
+              </div>
+              <div className="flex-1 2xl:h-[100px] xl:h-[80px] flex justify-center items-center">
+                <button className="btn-exam">시험 응시</button>
+              </div>
+            </div>
+            <div className="flex 2xl:w-[613px] 2xl:h-[100px] xl:w-[500px] xl:h-[80px] rounded-[20px] border border-[#C7C5BD] mb-[10px]">
+              <div className="2xl:w-[300px] 2xl:h-[100px] xl:w-[240px] xl:h-[80px] text-[24px] flex justify-center items-center">
+                시험 이름
+              </div>
+              <div className="2xl:w-[100px] 2xl:h-[100px] xl:h-[80px] text-[24px] font-bold flex justify-center items-center">
+                미응시
+              </div>
+              <div className="flex-1 2xl:h-[100px] xl:h-[80px] flex justify-center items-center">
+                <button className="btn-exam">시험 응시</button>
+              </div>
+            </div>
+            <div className="flex 2xl:w-[613px] 2xl:h-[100px] xl:w-[500px] xl:h-[80px] rounded-[20px] border border-[#C7C5BD] mb-[10px]">
+              <div className="2xl:w-[300px] 2xl:h-[100px] xl:w-[240px] xl:h-[80px] text-[24px] flex justify-center items-center">
+                시험 이름
+              </div>
+              <div className="2xl:w-[100px] 2xl:h-[100px] xl:h-[80px] text-[24px] font-bold flex justify-center items-center">
+                미응시
+              </div>
+              <div className="flex-1 2xl:h-[100px] xl:h-[80px] flex justify-center items-center">
+                <button className="btn-exam">시험 응시</button>
+              </div>
+            </div>
+            <div className="flex 2xl:w-[613px] 2xl:h-[100px] xl:w-[500px] xl:h-[80px] rounded-[20px] border border-[#C7C5BD] mb-[10px]">
+              <div className="2xl:w-[300px] 2xl:h-[100px] xl:w-[240px] xl:h-[80px] text-[24px] flex justify-center items-center">
+                시험 이름
+              </div>
+              <div className="2xl:w-[100px] 2xl:h-[100px] xl:h-[80px] text-[24px] font-bold flex justify-center items-center">
+                미응시
+              </div>
+              <div className="flex-1 2xl:h-[100px] xl:h-[80px] flex justify-center items-center">
+                <button className="btn-exam">시험 응시</button>
+              </div>
+            </div>
             <div className="flex 2xl:w-[613px] 2xl:h-[100px] xl:w-[500px] xl:h-[80px] rounded-[20px] border border-[#C7C5BD] mb-[10px]">
               <div className="2xl:w-[300px] 2xl:h-[100px] xl:w-[240px] xl:h-[80px] text-[24px] flex justify-center items-center">
                 시험 이름
