@@ -30,7 +30,7 @@ function Contents() {
       className="
     2xl:w-[1443px] xl:w-[1100px] 
     h-auto
-    2xl:mb-[120px] xl:mb-[50px]
+    2xl:mb-[100px] xl:mb-[50px]
     flex flex-col justify-start"
     >
       <ContentTopNav />

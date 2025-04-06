@@ -5,8 +5,8 @@ function ContentTopNav() {
     <div
       className=" 
     2xl:w-[560px] xl:w-[400px]
-    2xl:h-[160px] xl:h-[100px]
-    xl:mb-[100px]"
+    2xl:h-[100px] xl:h-[100px]
+    xl:mb-[70px]"
     >
       <div
         className="
