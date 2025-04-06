@@ -22,7 +22,7 @@ function SideNav({ styleClass }) {
         bg-[#F7F7F5]
       "
       >
-        지피티처
+        지피티쳐
       </a>
       <AccordionMenu
         studyName="나중에입력받기"

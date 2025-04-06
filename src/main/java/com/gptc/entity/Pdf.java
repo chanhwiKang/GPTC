@@ -25,7 +25,7 @@ public class Pdf {
     private String pdfName;
 
     @Lob
-    @Column(name = "pdfText", nullable = false)
+    @Column(name = "pdfText", nullable = false, columnDefinition = "LONGTEXT")
     private String pdfText;
 
 }

@@ -3,6 +3,7 @@ package com.gptc.util;
 import com.gptc.service.JwtUserDetailsService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +14,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
-import java.util.Collections;
 
 @Component
 @RequiredArgsConstructor
@@ -26,17 +26,32 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
+        String token = null;
+
+        // 1. Authorization 헤더에서 찾기
         String header = request.getHeader("Authorization");
         if (header != null && header.startsWith("Bearer ")) {
-            String token = header.substring(7);
-            if (jwtTokenProvider.validateToken(token)) {
-                String email = jwtTokenProvider.getEmailFromToken(token);
-                UserDetails userDetails = userDetailsService.loadUserByUsername(email);
-                UsernamePasswordAuthenticationToken authentication =
-                        new UsernamePasswordAuthenticationToken(userDetails, null, Collections.emptyList());
+            token = header.substring(7);
+        }
 
-                SecurityContextHolder.getContext().setAuthentication(authentication);
+        // 2. 쿠키에서 jwtToken 찾기
+        if (token == null && request.getCookies() != null) {
+            for (Cookie cookie : request.getCookies()) {
+                if ("jwtToken".equals(cookie.getName())) {
+                    token = cookie.getValue();
+                    break;
+                }
             }
+        }
+
+        // 토큰 검증
+        if (token != null && jwtTokenProvider.validateToken(token)) {
+            String email = jwtTokenProvider.getEmailFromToken(token);
+            UserDetails userDetails = userDetailsService.loadUserByUsername(email);
+            UsernamePasswordAuthenticationToken authentication =
+                    new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+
+            SecurityContextHolder.getContext().setAuthentication(authentication);
         }
 
         filterChain.doFilter(request, response);
