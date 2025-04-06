@@ -9,6 +9,16 @@
     pl-[20px]
     text-[20px];
 }
+.input-exeam {
+  @apply rounded-[20px] 
+  w-[580px]
+  h-[48px] 
+  placeholder-opacity-50 
+  placeholder:text-[24px]
+  placeholder-[defaultPlaceholder] 
+  pl-[20px]
+  text-[24px];
+}
 .input-create {
   @apply rounded-[20px]
   w-[580px]

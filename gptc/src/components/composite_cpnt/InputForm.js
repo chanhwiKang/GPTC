@@ -16,6 +16,7 @@ function InputForm({
   value,
   password,
   setPassword,
+  className,
 }) {
   const [status, setStatus] = useState('n');
 
@@ -59,6 +60,7 @@ function InputForm({
         value={value}
         type={type}
         name={name}
+        className={className}
       />
     </div>
   );

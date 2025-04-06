@@ -37,7 +37,7 @@ const inputConfig = {
     title: '인증번호',
     placeholder: '인증번호 6자리를 입력해주세요.',
     messages: {},
-  },  
+  },
 };
 
 export default inputConfig;
