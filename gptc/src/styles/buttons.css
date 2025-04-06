@@ -6,7 +6,6 @@
     text-[32px]
     text-[#ffffff];
 }
-
 .btn-disable {
   @apply bg-disableBtnColor 
       rounded-[20px] 
@@ -14,7 +13,14 @@
       h-[60px]
       text-[32px];
 }
-
+.btn-exam {
+  @apply bg-defaultBtnColor 
+rounded-[20px] 
+w-[120px] 
+h-[48px]
+text-[24px]
+text-[#ffffff];
+}
 .btn-google {
   @apply bg-white
   rounded-[20px]

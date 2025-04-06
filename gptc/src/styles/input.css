@@ -17,7 +17,9 @@
   placeholder:text-[24px]
   placeholder-[defaultPlaceholder] 
   pl-[20px]
-  text-[24px];
+  text-[24px]
+  border
+  border-[#C7C5BD];
 }
 .input-create {
   @apply rounded-[20px]
@@ -46,5 +48,9 @@
     h-[37px] 
     placeholder:text-[20px]
     text-[20px];
+  }
+  .input-exeam {
+    @apply w-[490px]
+      text-[20px];
   }
 }

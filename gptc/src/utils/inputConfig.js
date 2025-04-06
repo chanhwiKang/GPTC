@@ -38,6 +38,11 @@ const inputConfig = {
     placeholder: '인증번호 6자리를 입력해주세요.',
     messages: {},
   },
+  examTitle: {
+    title: '시험명',
+    placeholder: '생성할 시험의 이름을 입력해주세요.',
+    messages: {},
+  },
 };
 
 export default inputConfig;
