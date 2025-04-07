@@ -23,6 +23,15 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final JwtUserDetailsService userDetailsService;
 
     @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
+        String path = request.getServletPath();
+        //JWT 없어도 되어야하는 애들
+        return path.equals("/api/member/signup") ||
+                path.equals("/api/member/login") ||
+                path.startsWith("/api/member/email-verified");
+    }
+
+    @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
