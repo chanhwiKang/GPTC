@@ -5,7 +5,7 @@ import ExamContent from '../components/composite_cpnt/ExamContent';
 import UnfinishedContent from '../components/composite_cpnt/UnfinishedContent';
 import { useState } from 'react';
 function Contents() {
-  const [activeContent, setActiveContent] = useState('exam');
+  const [activeContent, setActiveContent] = useState('시험');
   const renderContent = () => {
     switch (activeContent) {
       case '시험':

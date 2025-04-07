@@ -7,8 +7,8 @@ function StudyBtns({ activeContent, setActiveContent }) {
         <button
           key={btn}
           onClick={() => setActiveContent(btn)}
-          className={`relative text-gray-400 hover:text-[#8854F7] transition-colors duration-300 ${
-            activeContent === btn ? 'text-[#8854F7]' : ''
+          className={`relative hover:text-[#8854F7] transition-colors duration-300 ${
+            activeContent === btn ? 'text-[#8854F7]' : 'text-gray-400 '
           }`}
         >
           {btn}
