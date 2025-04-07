@@ -8,7 +8,7 @@ function Contents() {
   const [activeContent, setActiveContent] = useState('exam');
   const renderContent = () => {
     switch (activeContent) {
-      case '시험 ':
+      case '시험':
         return <ExamContent />;
       default:
         return <UnfinishedContent />;
