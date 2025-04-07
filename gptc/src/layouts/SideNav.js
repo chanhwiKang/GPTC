@@ -13,7 +13,18 @@ function SideNav({ styleClass }) {
 
   return (
     <div className={`side-nav ${styleClass}`}>
-      <a href="/" className="...">지피티쳐</a>
+      <a
+        href="/"
+        className="
+         text-[44px] font-bold
+         text-[#5D5D5D]
+         h-[9%] w-full
+         flex items-center justify-center
+         sticky top-0
+         z-10 bg-[#F7F7F5]"
+      >
+        지피티쳐
+      </a>
       {studies.map((study, i) => (
         <AccordionMenu
           key={study.studyNo}
