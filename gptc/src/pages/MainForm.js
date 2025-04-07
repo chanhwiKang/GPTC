@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import MainBackBoard from '../layouts/MainBackBoard';
 import { useLogin } from '../context/LoginContext';
 import { useNavigate } from 'react-router-dom';
 import DefaultButton from '../components/atomic_cpnt/DefaultButton';
-import { uploadPdf } from '../services/api';
+import { uploadPdfFile } from '../services/api';
+import { useStudies } from '../context/StudyContext';
 
 function MainForm() {
 
@@ -13,6 +13,7 @@ function MainForm() {
   const [fileName, setFileName] = useState('');
   const [studyName, setStudyName] = useState('');
   const { isLoggedIn, userInfo } = useLogin();
+  const { fetchStudies } = useStudies();
 
   const handleFileChange = (e) => {
       if (!isLoggedIn) navigate('/login');
@@ -36,20 +37,12 @@ function MainForm() {
       return;
     }
   
-    const formData = new FormData();
-    formData.append('file', file);
-    formData.append('studyName', studyName);
-  
     try {
-      const response = await axios.post('http://localhost:8080/api/file/upload-pdf', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-        withCredentials: true,
-      });
-  
+      const result = await uploadPdfFile(file, studyName);
       alert('파일 업로드 성공!');
-      console.log(response.data);
+      console.log(result);
+      await fetchStudies();
+      navigate('/study');
     } catch (err) {
       console.error('업로드 실패:', err);
       alert('파일 업로드 실패!');

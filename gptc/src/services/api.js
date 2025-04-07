@@ -32,4 +32,23 @@ export const requestEmailVerification = (email, type) =>
 export const verifyEmailCode = (email, type, code) =>
   api.post('/email-verification/verify', null, { params: { email, type, code } });
 
+export const uploadPdfFile = async (file, studyName) => {
+  const formData = new FormData();
+  formData.append('file', file);
+  formData.append('studyName', studyName);
+
+  const response = await api.post('/file/upload-pdf', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+
+  return response.data;
+};
+
+export const studyList = async () => {
+  const response = await api.get('/study/studies');
+  return response.data;
+};
+
 export default api;

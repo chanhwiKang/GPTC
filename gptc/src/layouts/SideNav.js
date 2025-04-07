@@ -1,46 +1,28 @@
-import '../styles/layouts.css';
+import { useStudies } from '../context/StudyContext';
 import { useState } from 'react';
+import { useEffect } from 'react';
 import AccordionMenu from '../components/composite_cpnt/AccordionMenu';
-import { useNavigate } from 'react-router-dom';
 
 function SideNav({ styleClass }) {
   const [activeIndex, setActiveIndex] = useState(null);
-  const navigate = useNavigate();
+  const { studies, fetchStudies } = useStudies();
+
+  useEffect(() => {
+    fetchStudies(); // 로그인 이후에도 이거 호출하면 갱신됨
+  }, []);
 
   return (
     <div className={`side-nav ${styleClass}`}>
-      <a
-        href="/"
-        className="
-        text-[44px] font-bold
-        text-[#5D5D5D]
-        h-[9%] w-full
-        flex items-center justify-center
-        sticky top-0
-        z-10 bg-[#F7F7F5]
-      "
-      >
-        지피티쳐
-      </a>
-      <AccordionMenu
-        studyName="나중에입력받기"
-        index={0}
-        activeIndex={activeIndex}
-        setActiveIndex={setActiveIndex}
-        onClick={() => navigate('/contents-exam')}
-      />
-      <AccordionMenu
-        studyName="나중에입력받기1"
-        index={1}
-        activeIndex={activeIndex}
-        setActiveIndex={setActiveIndex}
-      />
-      <AccordionMenu
-        studyName="나중에입력받기2"
-        index={2}
-        activeIndex={activeIndex}
-        setActiveIndex={setActiveIndex}
-      />
+      <a href="/" className="...">지피티쳐</a>
+      {studies.map((study, i) => (
+        <AccordionMenu
+          key={study.studyNo}
+          studyName={study.studyName}
+          index={i}
+          activeIndex={activeIndex}
+          setActiveIndex={setActiveIndex}
+        />
+      ))}
     </div>
   );
 }

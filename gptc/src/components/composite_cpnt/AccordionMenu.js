@@ -1,23 +1,14 @@
 import { useState } from 'react';
 import '../../styles/form-element.css';
-function AccordionMenu({
-  studyName,
-  index,
-  activeIndex,
-  setActiveIndex,
-  onClick,
-}) {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-    setActiveIndex(index);
-    if (onClick) {
-      onClick();
-    }
-  };
+function AccordionMenu({ studyName, index, activeIndex, setActiveIndex, children }) {
   const isActive = activeIndex === index;
+
+  const toggleMenu = () => {
+    setActiveIndex(isActive ? null : index);
+  };
+
   return (
-    <div className={`nav-title ${isActive && isOpen ? 'active' : ''}`}>
+    <div className={`nav-title ${isActive ? 'active' : ''}`}>
       <div>
         <button onClick={toggleMenu} className="w-full h-full text-left">
           {studyName}
@@ -25,17 +16,11 @@ function AccordionMenu({
       </div>
       <div
         className={`
-    overflow-hidden
-    transition-all duration-7000 ease-in-out pl-[10%]
-    ${isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}
-  `}
+          overflow-hidden transition-all duration-500 ease-in-out pl-[10%]
+          ${isActive ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}
+        `}
       >
-        <div>
-          <button className="w-full h-full text-left">11111</button>
-        </div>
-        <div>
-          <button className="w-full h-full text-left">22222</button>
-        </div>
+        {children}
       </div>
     </div>
   );

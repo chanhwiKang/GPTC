@@ -9,6 +9,7 @@ import { useLogin } from '../context/LoginContext';
 import { loginUser } from '../services/api';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useStudies } from '../context/StudyContext';
 
 function LoginForm() {
   const [isEmailValid, setIsEmailValid] = useState(false);
@@ -17,6 +18,7 @@ function LoginForm() {
   const navigate = useNavigate();
   const { loginData, setLoginData, login } = useLogin();
   const { isLoggedIn } = useLogin();
+  const { fetchStudies } = useStudies();
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -45,6 +47,7 @@ function LoginForm() {
       login(userInfo);
 
       alert('로그인 성공!');
+      await fetchStudies();
       navigate('/');
     } catch (err) {
       alert('이메일 또는 비밀번호가 잘못되었습니다.');

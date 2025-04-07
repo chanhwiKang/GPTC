@@ -8,8 +8,11 @@ import FindPwForm from './pages/FindPwForm_T';
 import Contents from './pages/Contents';
 import { SignUpProvider } from './context/SignUpContext';
 import { LoginProvider } from './context/LoginContext';
+import { StudyProvider } from './context/StudyContext';
+
 function App() {
   return (
+    <StudyProvider>
     <SignUpProvider>
       <LoginProvider>
         <Router>
@@ -20,12 +23,13 @@ function App() {
               <Route path="/email-verification" element={<SignUpForm2 />} />
               <Route path="/login" element={<LoginForm />} />
               <Route path="/find-pw" element={<FindPwForm />} />
-              <Route path="/contents-exam" element={<Contents />} />
+              <Route path="/study" element={<Contents />} />
             </Routes>
           </FullLayout>
         </Router>
       </LoginProvider>
     </SignUpProvider>
+    </StudyProvider>
   );
 }
 
