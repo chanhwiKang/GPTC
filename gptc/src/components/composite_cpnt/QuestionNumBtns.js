@@ -20,7 +20,11 @@ function QuestionNumBtns({ selectedAnswers, goToSelectPage }) {
       border-y-2 border-l-2 border-black
       ${i === 0 ? 'rounded-l-[20px]' : ''}
       ${i === 9 ? 'rounded-r-[20px] border-r-2' : ''}
-      ${selectedAnswers[i] === undefined ? 'bg-white' : 'bg-defaultBtnColor'}
+      ${
+        selectedAnswers[i] === undefined
+          ? 'bg-white text-black'
+          : 'bg-defaultBtnColor text-white'
+      }
       `}
         >
           {i + 1}
