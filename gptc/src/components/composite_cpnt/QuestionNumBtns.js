@@ -1,4 +1,4 @@
-function QuestionNumBtns({ selectedAnswers }) {
+function QuestionNumBtns({ selectedAnswers, goToSelectPage }) {
   return (
     <div
       className="
@@ -10,6 +10,10 @@ function QuestionNumBtns({ selectedAnswers }) {
         <button
           key={i}
           index={i}
+          onClick={() => {
+            console.log('Button clicked:', i);
+            goToSelectPage(i);
+          }}
           className={`
       2xl:w-[50px] 2xl:h-[50px] 2xl:text-[24px]
       flex justify-center items-center

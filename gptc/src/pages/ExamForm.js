@@ -7,6 +7,10 @@ function ExamForm() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState({});
 
+  const handleDirect = (questionIndex) => {
+    setCurrentQuestionIndex(questionIndex);
+  };
+
   const handlePrev = () => {
     setCurrentQuestionIndex((prev) => Math.max(prev - 1, 0));
   };
@@ -36,7 +40,10 @@ function ExamForm() {
         <div className="2xl:text-[32px] 2xl:mb-[25px] w-full flex justify-center">
           시험 제목 가져오기
         </div>
-        <QuestionNumBtns selectedAnswers={selectedAnswers} />
+        <QuestionNumBtns
+          selectedAnswers={selectedAnswers}
+          goToSelectPage={handleDirect}
+        />
         <hr className="my-[20px] boder-2 border-[#C7C5BD] 2xl:w-[630px]" />
 
         {/* 백엔드에서 질문과 답을 받아와야 함 */}
