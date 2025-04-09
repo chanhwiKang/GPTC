@@ -1,4 +1,4 @@
-function QuestionNumBtns() {
+function QuestionNumBtns({ selectedAnswers }) {
   return (
     <div
       className="
@@ -16,6 +16,7 @@ function QuestionNumBtns() {
       border-y-2 border-l-2 border-black
       ${i === 0 ? 'rounded-l-[20px]' : ''}
       ${i === 9 ? 'rounded-r-[20px] border-r-2' : ''}
+      ${selectedAnswers[i] === undefined ? 'bg-white' : 'bg-defaultBtnColor'}
       `}
         >
           {i + 1}
