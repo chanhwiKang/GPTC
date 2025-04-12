@@ -11,7 +11,6 @@ function QuestionNumBtns({ selectedAnswers, goToSelectPage }) {
           key={i}
           index={i}
           onClick={() => {
-            console.log('Button clicked:', i);
             goToSelectPage(i);
           }}
           className={`

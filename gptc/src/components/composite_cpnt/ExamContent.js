@@ -23,7 +23,7 @@ function ExamContent() {
     // 👉 나중에 API 로 formData 를 전달하면 됩니다!
   };
   return (
-    <div className="2xl:w-[1443px] xl:w-[1100px] 2xl:h-[660px] xl:h-[528px] flex justify-between ">
+    <div className="2xl:w-[1500px] xl:w-[1100px] 2xl:h-[660px] xl:h-[528px] flex justify-between ">
       <div className="w-[50%] flex flex-col justify-center items-left 2xl:py-[70px] xl:py-[10px] px-[4px]">
         <InputForm
           type="examTitle"

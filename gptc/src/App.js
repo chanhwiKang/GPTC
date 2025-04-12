@@ -10,6 +10,8 @@ import { SignUpProvider } from './context/SignUpContext';
 import { LoginProvider } from './context/LoginContext';
 import { StudyProvider } from './context/StudyContext';
 import ExamForm from './pages/ExamForm';
+import Explain from './pages/ExplainFrom';
+import PdfForm from './pages/PdfForm';
 
 function App() {
   return (
@@ -25,8 +27,8 @@ function App() {
                 <Route path="/login" element={<LoginForm />} />
                 <Route path="/find-pw" element={<FindPwForm />} />
                 <Route path="/study" element={<Contents />} />
-
                 <Route path="/exam" element={<ExamForm />} />
+                <Route path="/explain" element={<Explain />} />
               </Routes>
             </FullLayout>
           </Router>
